@@ -1,0 +1,55 @@
+﻿<Page x:Class="ComboBoxPlus.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:ComboBoxPlus"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <Grid
+        ColumnSpacing="10">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="2*" />
+      <RowDefinition Height="3*" />
+    </Grid.RowDefinitions>
+
+    <StackPanel
+      Grid.Column="0"
+      Spacing="10"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      >
+      <TextBlock Text="XML BIND" />
+      <TextBlock AutomationProperties.AutomationId="HelloTextBlock"
+          Text="{x:Bind SelectedItem, Mode=OneWay}"
+          HorizontalAlignment="Center" />
+      <ComboBox ItemsSource="{x:Bind ViewModel, Mode=OneWay}" SelectedItem="{x:Bind SelectedItem, Mode=TwoWay}" />
+    </StackPanel>
+
+    
+    <StackPanel
+      Grid.Column="1"
+      Spacing="10"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      >
+      <TextBlock Text="PROGRAMMATIC BIND" />
+      <TextBlock x:Name="textBlockProg" />
+      <ComboBox x:Name="comboBoxProg"  />
+
+    </StackPanel>
+
+    <StackPanel
+       Grid.Row="1"
+       Grid.ColumnSpan="2"
+       Spacing="10"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Center">
+      <Button Click="button_Click1" Content="SET SELECTED ITEM" />
+      <Button Click="button_Click2" Content="SET ITEMS SOURCE" />
+      <Button Click="button_Click3" Content="RESET" />
+    </StackPanel>
+
+  </Grid>
+</Page>

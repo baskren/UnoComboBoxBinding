@@ -1,0 +1,10 @@
+{
+	"profiles": {
+		"ComboBoxPlus.Windows (Unpackaged)": {
+			"commandName": "Project"
+		},
+		"ComboBoxPlus.Windows (Package)": {
+			"commandName": "MsixPackage"
+		}
+	}
+}
