@@ -36,10 +36,6 @@ public sealed partial class MainPage : Page
     {
 
         this.InitializeComponent();
-
-        textBlockProg.Bind(TextBlock.TextProperty, this, nameof(SelectedItem));
-        comboBoxProg.Bind(ComboBox.ItemsSourceProperty, this, nameof(ViewModel));
-        comboBoxProg.Bind(ComboBox.SelectedItemProperty, this, nameof(SelectedItem), Microsoft.UI.Xaml.Data.BindingMode.TwoWay);
     }
 
     private void button_Click1(object sender, RoutedEventArgs e)

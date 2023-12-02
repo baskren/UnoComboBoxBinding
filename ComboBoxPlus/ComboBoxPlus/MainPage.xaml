@@ -7,7 +7,6 @@
         ColumnSpacing="10">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
       <RowDefinition Height="2*" />
@@ -28,21 +27,9 @@
     </StackPanel>
 
     
-    <StackPanel
-      Grid.Column="1"
-      Spacing="10"
-      HorizontalAlignment="Center"
-      VerticalAlignment="Center"
-      >
-      <TextBlock Text="PROGRAMMATIC BIND" />
-      <TextBlock x:Name="textBlockProg" />
-      <ComboBox x:Name="comboBoxProg"  />
-
-    </StackPanel>
 
     <StackPanel
        Grid.Row="1"
-       Grid.ColumnSpan="2"
        Spacing="10"
        HorizontalAlignment="Center"
        VerticalAlignment="Center">

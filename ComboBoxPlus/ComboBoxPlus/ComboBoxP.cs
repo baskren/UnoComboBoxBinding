@@ -22,19 +22,8 @@ public partial class ComboBoxP : ComboBox
     );
 
     private void OnSelectedItemChanged(DependencyPropertyChangedEventArgs e)
-    {
-        if (ItemsSource is IEnumerable enumeragble)
-        {
-            foreach (var item in enumeragble)
-            {
-                if (item.Equals(SelectedItem))
-                {
-                    base.SelectedItem = e.NewValue;
-                    return;
-                }
-            }
-        }
-    }
+        => SetBaseSelectedItem();
+    
 
     public new object? SelectedItem
     {
@@ -44,15 +33,27 @@ public partial class ComboBoxP : ComboBox
     #endregion SelectedItem Property
 
 
-    object? CachedSelectedItem;
-
     public ComboBoxP()
-    {
-        RegisterPropertyChangedCallback(ItemsSourceProperty, OnItemsSourceChanged);
-    }
+        => RegisterPropertyChangedCallback(ItemsSourceProperty, OnItemsSourceChanged);
+
 
     private void OnItemsSourceChanged(DependencyObject sender, DependencyProperty dp)
+        => SetBaseSelectedItem();    
+
+
+    void SetBaseSelectedItem()
     {
-        base.SelectedItem = SelectedItem;
+        if (ItemsSource is IEnumerable enumeragble)
+        {
+            foreach (var item in enumeragble)
+            {
+                if (item.Equals(SelectedItem))
+                {
+                    base.SelectedItem = SelectedItem;
+                    return;
+                }
+            }
+        }
     }
+
 }
